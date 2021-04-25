@@ -1,0 +1,36 @@
+                        
+<!-- {% if user.is_authenticated %}
+	<h3>Hello {{ user.username }} </h3>
+	<a href="../../accounts/logout">Logout</a>
+
+{% else %}
+	<a href="../../accounts/register">Register</a>
+	<a href="../../accounts/login">Login</a>
+
+{% endif %}
+ -->
+
+
+
+
+
+
+{% if user.is_authenticated %}
+	<h3>Hello {{ user.username }} </h3>
+	<!-- <a href="../../">Logout</a> -->
+	<form action="../accounts/logout/" method="POST"> {% csrf_token %}
+	
+		<button type="submit">Logout</button>
+	</form>
+
+{% endif %}
+
+<form method="POST"> {% csrf_token %}
+	{{ product_form.as_p }}
+	<input type="submit" value="Post" />
+</form>
+
+{% for instance in product %}
+	<p> {{ instance.description }} <a href="comment"> comment </a></p>
+
+{% endfor %}

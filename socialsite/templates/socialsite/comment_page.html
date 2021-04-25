@@ -1,0 +1,11 @@
+<form method="POST"> {% csrf_token %}
+	{{ comment_box.as_p }}
+	<input type="submit" value="comment" />
+</form>
+
+
+
+{% for instance in comments %}
+	<p>{{instance.comment_description}}</p>
+
+{% endfor %}
